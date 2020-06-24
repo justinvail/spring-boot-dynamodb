@@ -2,7 +2,6 @@ package org.smartinrubio.springbootdynamodb.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import lombok.*;
-import org.smartinrubio.springbootdynamodb.utils.GeoTypeConverter;
 
 @Data
 @DynamoDBTable(tableName = "Hotels")
@@ -14,9 +13,5 @@ public class Hotel {
 
     @DynamoDBAttribute
     private String name;
-
-    @DynamoDBAttribute
-    @DynamoDBTypeConverted(converter = GeoTypeConverter.class)
-    private Geo geo;
 
 }

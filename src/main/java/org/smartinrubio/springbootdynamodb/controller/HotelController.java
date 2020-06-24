@@ -37,24 +37,25 @@ public class HotelController {
         return ResponseEntity.ok("Data Loaded");
     }
 
-    @GetMapping
-    public List<Hotel> readAll() {
-        return Stream.generate(() -> repository.findAll().iterator().next()).collect(Collectors.toList());
-    }
+//    @GetMapping("/all")
+//    public List<Hotel> readAll() {
+//        List<Hotel> hotels = Stream.generate(() -> repository.findAll().iterator().next()).collect(Collectors.toList());
+//        return hotels;
+//    }
 
-    @PostMapping
-    public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel, UriComponentsBuilder uriComponentsBuilder) {
-        Hotel savedHotel = repository.save(hotel);
-        HttpHeaders headers = new HttpHeaders();
-        URI locationUri = uriComponentsBuilder
-                .path("/hotels/")
-                .path(String.valueOf(savedHotel.getId()))
-                .build()
-                .toUri();
-        headers.setLocation(locationUri);
-
-        return new ResponseEntity<>(savedHotel, headers, HttpStatus.CREATED);
-    }
+//    @PostMapping
+//    public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel, UriComponentsBuilder uriComponentsBuilder) {
+//        Hotel savedHotel = repository.save(hotel);
+//        HttpHeaders headers = new HttpHeaders();
+//        URI locationUri = uriComponentsBuilder
+//                .path("/hotels/")
+//                .path(String.valueOf(savedHotel.getId()))
+//                .build()
+//                .toUri();
+//        headers.setLocation(locationUri);
+//
+//        return new ResponseEntity<>(savedHotel, headers, HttpStatus.CREATED);
+//    }
 
     @GetMapping("/{hotelId}")
     public Hotel readHotelById(@PathVariable("hotelId") String id) {

@@ -66,13 +66,11 @@ public class CustomHotelRepositoryImpl implements CustomHotelRepository {
 
             String id = currentNode.path("id").asText();
             String name = currentNode.path("name").asText();
-            String geo = currentNode.path("geo").toString();
 
             try {
                 table.putItem(new Item()
                         .withPrimaryKey("id", id)
-                        .withString("name", name)
-                        .withJSON("geo", geo));
+                        .withString("name", name));
                 log.info("PutItem succeeded " + id + " " + name);
             } catch (Exception e) {
                 log.error("Unable to add hotel: {} - {}: \n{}", id, name, e.getMessage());
