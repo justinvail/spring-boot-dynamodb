@@ -66,11 +66,15 @@ public class CustomHotelRepositoryImpl implements CustomHotelRepository {
 
             String id = currentNode.path("id").asText();
             String name = currentNode.path("name").asText();
+            String address = currentNode.path("address").asText();
+            String email = currentNode.path("email").asText();
 
             try {
                 table.putItem(new Item()
                         .withPrimaryKey("id", id)
-                        .withString("name", name));
+                        .withString("name", name)
+                        .withString("address", address)
+                        .withString("email", email));
                 log.info("PutItem succeeded " + id + " " + name);
             } catch (Exception e) {
                 log.error("Unable to add hotel: {} - {}: \n{}", id, name, e.getMessage());

@@ -14,4 +14,10 @@ public class Hotel {
     @DynamoDBAttribute
     private String name;
 
+    @DynamoDBAttribute
+    private String address;
+
+    @DynamoDBAttribute
+    private String email;
+
 }
