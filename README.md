@@ -2,12 +2,8 @@
 ## Getting Started
 ### DynamoDB local
 ```
-docker run -p 8000:8000 amazon/dynamodb-local
+docker run -d --name "dynamo-db" -p 8000:8000 amazon/dynamodb-local
 ```
-### AWS configuration
-Make sure Amazon AWS env variables are set:
-- AWS_ACCESS_KEY_ID
-- AWS_SECRET_KEY
 
 ## Documentation
 - [Official AWS DynamoDB Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Java.html)
